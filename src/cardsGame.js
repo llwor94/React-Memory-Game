@@ -8,7 +8,7 @@ function Game() {
 
   return (
     <>
-    <Difficulty/>
+    {/* <Difficulty/> */}
     <div className='game_wrapper'>
     
       {gameComplete && <h3>Yay gerd jerb</h3>}

@@ -23,7 +23,7 @@
   background-color: transparent;
   width: 200px;
   height: 300px;
-  border: 1px solid #c96567;
+  
   perspective: 1000px;
   border-radius: 10px;
   justify-self: stretch;
@@ -73,6 +73,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  border: 1px solid #c96567;
   backface-visibility: hidden;
   border-radius: 10px;
   -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -95,4 +96,5 @@
 
 .image {
   width: 100%;
+  border-radius: 10px;
 }
