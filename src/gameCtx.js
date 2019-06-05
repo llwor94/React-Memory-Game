@@ -1,42 +1,42 @@
-import React, {createContext, useState, useEffect} from 'react';
-import useAxios from 'axios-hooks';
+import React, {createContext, useState, useEffect} from "react";
+import useAxios from "axios-hooks";
 
 export const GameCtx = createContext();
 
 function GameContext({children}) {
-  const [pairCount, setPairCount] = useState(4)
+  const [pairCount, setPairCount] = useState(4);
   const [cards, setCards] = useState([]);
   const [currentlyFlipped, setCurrentlyFlipped] = useState([]);
-  const [gameComplete, setGameComplete] = useState(false)
+  const [gameComplete, setGameComplete] = useState(false);
   const [{data}] = useAxios("https://picsum.photos/v2/list?limit=50");
 
-  const handleFlip = (card) => {
+  const handleFlip = card => {
     if (currentlyFlipped.length % 2 === 0) {
       setCurrentlyFlipped([...currentlyFlipped, card]);
       return;
-    } 
-    const isMatch = currentlyFlipped.some(c => c.id === card.id )
+    }
+    const isMatch = currentlyFlipped.some(c => c.id === card.id);
     if (isMatch) {
-      setCurrentlyFlipped([...currentlyFlipped, card])
+      setCurrentlyFlipped([...currentlyFlipped, card]);
       return true;
     } else {
-      setCurrentlyFlipped([...currentlyFlipped, card ])
+      setCurrentlyFlipped([...currentlyFlipped, card]);
       setTimeout(() => {
-        
-        currentlyFlipped.pop()
-        setCurrentlyFlipped(currentlyFlipped)
-      }, 1500)
+        currentlyFlipped.pop();
+        setCurrentlyFlipped(currentlyFlipped);
+      }, 1500);
       return false;
     }
-  }
+  };
 
-  useEffect(() => {
-    if (currentlyFlipped.length && currentlyFlipped.length === cards.length) {
-      setGameComplete(true)
-    }
-  }, [currentlyFlipped])
-  
-
+  useEffect(
+    () => {
+      if (currentlyFlipped.length && currentlyFlipped.length === cards.length) {
+        setGameComplete(true);
+      }
+    },
+    [currentlyFlipped]
+  );
 
   useEffect(
     () => {
@@ -57,11 +57,13 @@ function GameContext({children}) {
     [data]
   );
 
-  return(
-    <GameCtx.Provider value={{currentlyFlipped, cards, handleFlip, gameComplete}}>
+  return (
+    <GameCtx.Provider
+      value={{currentlyFlipped, cards, handleFlip, gameComplete}}
+    >
       {children}
     </GameCtx.Provider>
-  ) 
+  );
 }
 
 export default GameContext;
