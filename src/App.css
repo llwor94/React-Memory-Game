@@ -29,12 +29,11 @@
   justify-self: stretch;
   margin: 4px;
   position:relative;
-    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  cursor: pointer;
+  
 }
 
-.card_container:before, .card_container:after
+/* .card:before, .card:after
 {
 	content:"";
     position:absolute;
@@ -49,7 +48,7 @@
     -moz-border-radius:100px / 10px;
     border-radius:100px / 10px;
 }
-.card_container:after
+.card:after
 {
 	right:10px;
     left:auto;
@@ -58,7 +57,7 @@
         -ms-transform:skew(8deg) rotate(3deg);
          -o-transform:skew(8deg) rotate(3deg);
             transform:skew(8deg) rotate(3deg);
-}
+} */
 
 
 .card_inner {
@@ -76,6 +75,9 @@
   height: 100%;
   backface-visibility: hidden;
   border-radius: 10px;
+  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
 .front {

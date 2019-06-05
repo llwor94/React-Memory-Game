@@ -29,6 +29,21 @@ function GameContext({children}) {
     }
   };
 
+  const handleLevelChange = (level) => {
+    switch (level){
+      case 'medium':
+        setPairCount(7);
+        break;
+      case 'hard':
+        setPairCount(15);
+        break;
+      case 'easy':
+      default: 
+        setPairCount(4)
+    }
+      
+  }
+
   useEffect(
     () => {
       if (currentlyFlipped.length && currentlyFlipped.length === cards.length) {
@@ -59,7 +74,7 @@ function GameContext({children}) {
 
   return (
     <GameCtx.Provider
-      value={{currentlyFlipped, cards, handleFlip, gameComplete}}
+      value={{currentlyFlipped, cards, handleFlip, gameComplete, handleLevelChange}}
     >
       {children}
     </GameCtx.Provider>
