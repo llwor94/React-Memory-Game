@@ -30,7 +30,7 @@ function Card({image, index}) {
   return (
     <div className='card_container' onClick={() =>  handleFlip(image)}>
       <div className={clsx("card_inner", isFlipped && "is-flipped")}>
-        <div className={clsx("card", "front")}>{index + 1}</div>
+        <div className={clsx("card", "front")}><h3>{index + 1}</h3></div>
         <div className={clsx("card", "back")}>
           <img className='image' alt={image.id} src={image.download_url} />
         </div>
